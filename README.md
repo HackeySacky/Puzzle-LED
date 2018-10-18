@@ -1,5 +1,5 @@
-##Led Puzzle Project 
-#for CEMS-214 w/ Dr. Bedi
+## Led Puzzle Project 
+for CSCI-156 w/ Dr. Harpeet Bedi
 
 This Project contains prototype code for our project!
 
