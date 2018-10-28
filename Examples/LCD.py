@@ -36,7 +36,7 @@ try:
         lcd.clear()
         lcd.message('   {}/{}/{}'.format(date[1],date[2],date[0]))
         lcd.message('\n    {}:{}:{:.2}'.format(t[0],t[1],t[2]))
-        sleep(.75)
+        sleep(.5)
 
 except KeyboardInterrupt:
     lcd.clear()

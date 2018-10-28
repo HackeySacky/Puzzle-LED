@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 ## Pin number for the buzzer ##
-buzz = 3
+buzz = 27
 
 ## Functions to run buzzer ##
 

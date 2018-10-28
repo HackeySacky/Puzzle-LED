@@ -40,18 +40,19 @@ try:
         
         if Knob.click == 1:
             print('click')
-            ring.setPixelColor(n[current],Color(0,0,0))
+            if ring.getPixelColor(n[current]) == Color(0,180,180):
+                ring.setPixelColor(n[current],Color(0,0,0))
+            else:
+                ring.setPixelColor(n[current],Color(0,180,180))
             ring.show()
             
             
         if Knob.rot != 0:
-            current += Knob.rot
+            current -= Knob.rot
             if current == len(n) or current == -len(n):
                 current = 0
             print(current)
 
 except KeyboardInterrupt:
     ledclear(ring)
-    
-            
 
