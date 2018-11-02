@@ -15,7 +15,7 @@ def blip(n,t):
     GPIO.output(n,1)
     sleep(t)
     GPIO.output(n,0)
-    
+
 def trip(p,n,t):
     '''
     Function beeps pin for n amount of times for a duration of t
@@ -24,7 +24,7 @@ def trip(p,n,t):
     for x in range(n):
         blip(n,t)
         sleep(t)
-    
+
 def W_morse(pin,word,t = .05):
     '''
     Input: (pin,string,time) string must only contain a-z (lowercase) and spaces
@@ -47,12 +47,12 @@ def W_morse(pin,word,t = .05):
     # for loop converting one letter at a time to morse code
     for x in word:
         dit = dit+morse[x]+[0,0] # the [0,0] are used for separtion between characters
-        
+
     dit = dit + morse[' '] # adds separation between words incase this function is looped or ran in succession
-    
+
     Morse(pin,dit,t) # The helper function that takes the converted string and outputs as beeps
-        
-        
+
+
 def Morse(pin,binary,t = .05):
     '''
     Takes a list of binary (1 or 0) and converts 1 to beep on and 0 to beep off with a delay of t
@@ -67,12 +67,12 @@ def Morse(pin,binary,t = .05):
 
 if __name__ == '__main__':
     try:
-        
+
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(buzz,GPIO.OUT, initial = 0)
-        
+
         while True:
-            W_morse(buzz,'sos',.07)
+            W_morse(buzz,'sos',.05)
 
     except KeyboardInterrupt:
         GPIO.cleanup()
