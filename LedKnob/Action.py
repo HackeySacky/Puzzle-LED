@@ -25,9 +25,16 @@ k = Knob(CLK_PIN,DT_PIN,SW_PIN)
 start(k) # setup for IO and interupts
 #-----------------------------------------------------------#
 
+wow = [[0,0,0,0] for x in range(ring.numPixels())]
+
+for x in range(ring.numPixels()):
+    if x%2 == 0:
+        wow[x] = [180,0,180,0]
+
 try:
     print('Ready')
-    colorize(ring,Color(0,180,180))
+##    colorize(ring,Color(0,180,180))
+    colorlist(ring,wow)
     n = range(ring.numPixels())
     current = 0
     

@@ -38,3 +38,12 @@ def colorize(ledobj,color):
     for n in range(ledobj.numPixels()):
         ledobj.setPixelColor(n,color)
     ledobj.show()
+
+def Color_L(l):
+    G, R, B, W = l
+    return Color(R,G,B,W)
+
+def colorlist(ledobj,cList):
+    for n in range(len(cList)-1):
+        ledobj.setPixelColor(n,Color_L(cList[n]))
+    ledobj.show()
