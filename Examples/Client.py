@@ -8,7 +8,7 @@ s.connect((host,port))
 
 while True:
     command = input('Enter Command: ')
-    if command == 'EXIT' or command == 'KILL':
+    if command.lower() == 'exit' or command.lower() == 'kill':
         s.send(str.encode(command))
         break
     s.send(str.encode(command))

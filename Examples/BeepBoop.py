@@ -45,7 +45,7 @@ def W_morse(pin,word,t = .05):
     # Empty list for converting
     dit = []
     # for loop converting one letter at a time to morse code
-    for x in word:
+    for x in word.lower():  # converts each letter in the string to lowercase
         dit = dit+morse[x]+[0,0] # the [0,0] are used for separtion between characters
 
     dit = dit + morse[' '] # adds separation between words incase this function is looped or ran in succession

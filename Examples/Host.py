@@ -29,14 +29,14 @@ def dataTransfer(conn):
         data = conn.recv(1024)
         data = data.decode('utf-8')
         dataMsg = data.split(' ',1)
-        command = dataMsg[0]
-        if command == 'MSG':
+        command = dataMsg[0].lower()
+        if command == 'msg':
             reply = 'Sending: {}'.format(dataMsg[1])
             bp.W_morse(buzz,dataMsg[1])
-        elif command == 'EXIT':
+        elif command == 'exit':
             print('Client disconnected')
             break
-        elif command == 'KILL':
+        elif command == 'kill':
             print('Shutting Down')
             GPIO.cleanup()
             s.close()
@@ -46,7 +46,7 @@ def dataTransfer(conn):
         conn.sendall(str.encode(reply))
         print('Data has been sent!')
     conn.close()
-        
+
 
 s = setupsever()
 
@@ -60,7 +60,10 @@ while True:
 
     except KeyboardInterrupt:
         s.close()
+        GPIO.cleanup()
         break
     except:
+        GPIO.cleanup()
+        s.close()
         break
 
