@@ -43,6 +43,8 @@ def dataTransfer(conn):
             break
         else:
             reply = 'Unknown Command'
+
+        print('Command: {} received'data)
         conn.sendall(str.encode(reply))
         print('Data has been sent!')
     conn.close()
