@@ -65,7 +65,7 @@ def Morse(pin,binary,t = .05):
             GPIO.output(pin,0)
             sleep(t)
 
-if __name__ == '__main__':
+if __name__ == '__main__': ## Demo (beeps sos)
     try:
 
         GPIO.setmode(GPIO.BCM)

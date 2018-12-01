@@ -11,8 +11,8 @@ while True:
     if command.lower() == 'exit' or command.lower() == 'kill':
         s.send(str.encode(command))
         break
-    s.send(str.encode(command))
-    reply = s.recv(1024)
-    print(reply.decode('utf-8'))
+    s.send(str.encode(command)) # Sends the Command
+    reply = s.recv(1024) # waits for reply
+    print(reply.decode('utf-8')) # decodes messege in utf-8
 
-s.close()
+s.close() # Closes when while loop is broken

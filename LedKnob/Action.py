@@ -20,7 +20,7 @@ ring.begin() # setup for the IO
 CLK_PIN = 2 
 DT_PIN =  3
 SW_PIN =  4
-#-----------------------------------------------------------#
+#-----------Rotory-Encoder-OBJ------------------------------#
 k = Knob(CLK_PIN,DT_PIN,SW_PIN)
 start(k) # setup for IO and interupts
 #-----------------------------------------------------------#
