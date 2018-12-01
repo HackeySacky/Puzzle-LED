@@ -2,8 +2,6 @@
 
 from Lights import *
 from Rotary import *
-from Colors import *
-from time import sleep
 
 #-------LED-CONFIG------------------------------------------#
 COUNT       = 12
@@ -27,15 +25,20 @@ k = Knob(CLK_PIN,DT_PIN,SW_PIN)
 start(k) # setup for IO and interupts
 #-----------------------------------------------------------#
 
-pled = Colors(ring.numPixels(),'Red')
+wow = [[0,0,0,0] for x in range(ring.numPixels())]
+
+for x in range(ring.numPixels()):
+    if x%2 == 0:
+        wow[x] = [180,0,180,0]
 
 try:
     print('Ready')
-    colorlist(ring,pled.now)
+##    colorize(ring,Color(0,180,180))
+    colorlist(ring,wow)
     n = range(ring.numPixels())
     current = 0
     
-    while not pled.iswin():
+    while True:
         
         Knob.rot = 0
         Knob.click = 0
@@ -44,18 +47,18 @@ try:
         
         if Knob.click == 1:
             print('click')
-            pled.colorChange(current)
-            colorlist(ring,pled.now)
+            if ring.getPixelColor(n[current]) == Color(0,180,180):
+                ring.setPixelColor(n[current],Color(0,0,0))
+            else:
+                ring.setPixelColor(n[current],Color(0,180,180))
+            ring.show()
+            
             
         if Knob.rot != 0:
             current -= Knob.rot
             if current == len(n) or current == -len(n):
                 current = 0
             print(current)
-    print('We have a Winner!')
-    sleep(1)
-    lightshow(ring,[280,0,280,0],[232, 239, 38,0],3)
-    ledclear(ring)
 
 except KeyboardInterrupt:
     ledclear(ring)

@@ -47,6 +47,20 @@ def colorize(ledobj,color):
         ledobj.setPixelColor(n,color)
     ledobj.show()
 
+def lightshow(ledobj,c1,c2,n,t = .5):
+    ''' Flashes between two colors [r,g,b,w] n times over time t
+    '''
+    
+    color =  Color_L(c1)
+    color2 = Color_L(c2)
+    
+    for x in range(n):
+        colorize(ledobj,color)
+        time.sleep(t)
+        colorize(ledobj,color2)
+        time.sleep(t)
+    colorize(ledobj,Color(0,0,0))
+
 def Color_L(l):
     ''' Helper function that separates a list
         and returns the color [R,G,B,W]
@@ -58,6 +72,6 @@ def colorlist(ledobj,cList):
     '''Takes a list containting a list of colors and changes the
        colors of all the leds 
     '''
-    for n in range(len(cList)-1):
+    for n in range(len(cList)):
         ledobj.setPixelColor(n,Color_L(cList[n]))
     ledobj.show()
