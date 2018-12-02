@@ -44,7 +44,10 @@ try:
         
         if Knob.click == 1:
             print('click')
-            pled.colorChange(current)
+            if pled.now.count(Colors.c['Red']) >= (pled.n-2):
+                pled.Sneaky(current)
+            else:
+                pled.colorChange(current)
             colorlist(ring,pled.now)
             
         if Knob.rot != 0:

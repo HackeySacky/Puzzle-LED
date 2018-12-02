@@ -52,6 +52,15 @@ class Colors:
             k = self.fix(k)
             self.now[k] = Colors.c['Blue']
 
+    def Sneaky(self,pos):
+        '''
+        Changes Blue to Red and the other colors the same as colorChange
+        '''
+        if self.now[pos] == Colors.c['Blue']:
+            self.now[pos] = Colors.c['Red']
+        else:
+            self.colorChange(pos)
+
     def Scramble(self):
         self.now = [Colors.c[random.choice(['Red','Green','Blue'])] for x in range(self.n)]
 
