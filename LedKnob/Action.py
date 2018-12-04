@@ -1,3 +1,4 @@
+
 ## Light w/ Encoder Input ##
 
 from Lights import *
@@ -10,7 +11,7 @@ COUNT       = 12
 PIN         = 18
 FREQUENCY   = 800000
 DMA         = 10
-BRIGHTNESS  = 20
+BRIGHTNESS  = 5
 INVERT      = False
 CHANNEL     = 0
 Board_Type  = ws.SK6812_STRIP_RGBW

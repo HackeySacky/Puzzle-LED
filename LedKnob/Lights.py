@@ -33,7 +33,7 @@ def c_blink(ledobj,n,num = 1, t = 1):
 
         color = ledobj.getPixelColor(n)
         
-        ledobj.setPixelColor(n,Color(255,255,255,255))
+        ledobj.setPixelColor(n,Color(100,100,100,100))
         ledobj.show()
         time.sleep(t)
         ledobj.setPixelColor(n,color)
