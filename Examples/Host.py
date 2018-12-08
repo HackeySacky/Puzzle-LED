@@ -37,7 +37,10 @@ def dataTransfer(conn):
         command = dataMsg[0].lower()
         if command == 'msg': # msg command returns a morse code message to host
             reply = 'Sending: {}'.format(dataMsg[1])
-            bp.W_morse(buzz,dataMsg[1])
+            try:
+                bp.W_morse(buzz,dataMsg[1])
+            except:
+                reply = 'There was an error beeping your message...\nAvoid using special characters.'
         elif command == 'exit': # tells host that the client left
             print('Client disconnected')
             break
@@ -66,11 +69,10 @@ while True:
         dataTransfer(conn)
 
     except KeyboardInterrupt:
-        s.close()
         GPIO.cleanup()
+        s.close()
         break
     except:
         GPIO.cleanup()
         s.close()
         break
-
